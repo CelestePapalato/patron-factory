@@ -22,13 +22,24 @@ public class SkillFactory : MonoBehaviour
         }
     }
 
-    public Skill CreateSkill(string skillName, Transform position)
+    public Skill CreateSkill(string skillName, Transform position, bool childOfTransform)
     {
         Skill skill;
         Skill instance = null;
         if(skillsKey.TryGetValue(skillName, out skill))
         {
-            instance = Instantiate(skill, position.position, position.rotation);
+            if (childOfTransform)
+            {
+                instance = Instantiate(skill, position);
+            }
+            else
+            {
+                instance = Instantiate(skill, position.position, position.rotation);
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"La habilidad {skillName} no existe en la base de datos.");
         }
         return instance;
     }
