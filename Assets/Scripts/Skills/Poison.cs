@@ -8,6 +8,6 @@ public class Poison : Skill
 
     public override void Activate()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Poison casteado");
     }
 }

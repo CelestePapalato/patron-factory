@@ -8,6 +8,6 @@ public class Heal : Skill
 
     public override void Activate()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Heal casteado");
     }
 }
